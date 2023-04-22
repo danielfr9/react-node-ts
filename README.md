@@ -30,6 +30,13 @@ $ cd server
 $ npm i             // install Node dependencies
 ```
 
+Run a migration to create your database tables with Prisma Migrate. [Prisma Quickstart](https://www.prisma.io/docs/getting-started/quickstart)
+
+```
+$ cd server
+$ npx prisma migrate dev --name init
+```
+
 After that, run each project individually
 
 ```
