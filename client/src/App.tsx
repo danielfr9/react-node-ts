@@ -6,11 +6,15 @@ const App = () => {
 
   useEffect(() => {
     let isMounted = true;
+    const controller = new AbortController();
+
     const fetchFromServer = async () => {
       try {
-        const response = await axios.get("/");
+        const response = await axios.get("/", {
+          signal: controller.signal,
+        });
 
-        if (isMounted) setMessage(response.data);
+        if (isMounted) setMessage(response.data.message);
       } catch (error) {
         console.log(error);
         setMessage("Couldn't connect to the server!");
@@ -20,6 +24,7 @@ const App = () => {
 
     return () => {
       isMounted = false;
+      controller.abort();
     };
   }, []);
 

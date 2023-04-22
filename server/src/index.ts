@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.status(200).send("Hello from the server!");
+  res.status(200).send({ message: "Hello from the server!" });
 });
 
 app.listen(PORT, () => {
