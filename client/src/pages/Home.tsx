@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "./api/axios";
+import axios from "../api/axios";
 
-const App = () => {
+const Home = () => {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
@@ -29,12 +29,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-zinc-950 grid place-content-center">
-      <div className="bg-zinc-900 p-8 rounded-lg">
+    <div className="grow grid place-content-center">
+      <div className="bg-zinc-900 w-full max-w-lg p-8 rounded-lg">
         <h1 className="text-blue-500 text-xl font-bold">{message}</h1>
       </div>
     </div>
   );
 };
 
-export default App;
+export default Home;
